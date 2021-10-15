@@ -1,1 +1,14 @@
+int contim=0;
 
+
+
+                //Listado de imagenes
+                
+                if (letra == 'P' && data.read() == 'r' && data.read() == 'o' && data.read() == 'c' && 
+                        data.read() == 'S' && data.read() == 'e' && data.read() == 't'){
+                
+                   contim++;
+                
+                }
+                
+                System.out.println("La cantidad de imagenes es:" + contim);
