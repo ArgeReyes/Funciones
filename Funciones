@@ -12,3 +12,79 @@ int contim=0;
                 }
                 
                 System.out.println("La cantidad de imagenes es:" + contim);
+
+ private void lecturaAleatoria(){
+        try {
+            RandomAccessFile archivo= new RandomAccessFile("Proyecto.pdf","r");
+            byte letras[] = new byte[4];
+            
+        archivo.seek(0);
+        byte caracter=' ';
+        byte pdfV[]=new byte[8];
+       String version;
+        while(caracter != '%'){
+            caracter=archivo.readByte();
+            archivo.read(pdfV);
+  
+        }
+        
+        version=new String(pdfV);
+        System.out.println("Version del documento pdf:");
+        System.out.println(version);
+        
+     
+        
+        String pages="";
+        int contador=0;
+
+      while(pages!="%EOF"){
+          
+          pages=new String(pdfV);
+      }
+
+  
+ archivo.seek(contador);
+ archivo.read(letras);
+ System.out.println(new String(letras));
+            
+            
+        
+           
+            archivo.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (IOException ex) {
+             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }
+
+ 
+ public static void main(String [] args){
+     Main main= new Main();
+     main.lecturaAleatoria();
+     System.out.println("Ruta:");
+      File archivo=new File("Proyecto.pdf");
+      
+ System.out.println(archivo.getAbsolutePath());
+ System.out.println("Tamaño en Bytes::");
+ 
+ System.out.println(archivo.length());
+ 
+ 
+ 
+ SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+ System.out.println("Ultima fecha modificada:");
+ System.out.println(sdf.format(archivo.lastModified()));
+ 
+ 
+ 
+String fileName = "Proyecto.pdf";
+		String fe = "";
+		int i = fileName.lastIndexOf('.');
+		if (i > 0) {
+		    fe = fileName.substring(i+1);
+		}
+		System.out.println("La extension es : "+fe);
+ 
+ }
+ 
